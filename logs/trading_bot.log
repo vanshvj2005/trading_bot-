@@ -1,0 +1,750 @@
+2026-06-01 13:13:47 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:13:47 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:13:48 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'abkHTre2d871fI7B5jtJT4', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780299828358}
+2026-06-01 13:13:48 | INFO    | trading_bot | Order placed successfully | orderId=13674104195 status=NEW
+2026-06-01 13:19:25 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:19:25 | INFO    | trading_bot | Submitting order | MARKET SELL 0.001 BTCUSDT
+2026-06-01 13:19:25 | INFO    | trading_bot | Order response | MARKET SELL 0.001 BTCUSDT | {'orderId': 13674480112, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'OdoxnBCeip9MRAABIxw9y0', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780300165557}
+2026-06-01 13:19:25 | INFO    | trading_bot | Order placed successfully | orderId=13674480112 status=NEW
+2026-06-01 13:22:21 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:22:21 | INFO    | trading_bot | Submitting order | LIMIT BUY 0.001 BTCUSDT @ 80000.0
+2026-06-01 13:22:21 | ERROR   | trading_bot | Binance API error placing order: code=-4016 message=Limit price can't be higher than 76448.62.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/cli.py", line 189, in run
+    response = place_limit_order(
+        client,
+    ...<3 lines>...
+        price=params["price"],
+    )
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 156, in place_limit_order
+    response = _call_with_retry(_operation, description)
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 147, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        price=price,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 6504, in futures_create_order
+    return self._request_futures_api('post', 'order', True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 383, in _request_futures_api
+    return self._request(method, uri, signed, True, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 359, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 368, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4016): Limit price can't be higher than 76448.62.
+2026-06-01 13:22:43 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:22:43 | INFO    | trading_bot | Submitting order | LIMIT BUY 0.001 BTCUSDT @ 76000.0
+2026-06-01 13:22:44 | INFO    | trading_bot | Order response | LIMIT BUY 0.001 BTCUSDT @ 76000.0 | {'orderId': 13674715538, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'mdjHZehcxupqLLZN6nuM2h', 'price': '76000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780300364197}
+2026-06-01 13:22:44 | INFO    | trading_bot | Order placed successfully | orderId=13674715538 status=NEW
+2026-06-01 13:24:54 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:24:54 | INFO    | trading_bot | Submitting order | LIMIT BUY 0.001 BTCUSDT @ 80000.0
+2026-06-01 13:24:54 | ERROR   | trading_bot | Binance API error placing order: code=-4016 message=Limit price can't be higher than 76460.54.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/cli.py", line 189, in run
+    response = place_limit_order(
+        client,
+    ...<3 lines>...
+        price=params["price"],
+    )
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 156, in place_limit_order
+    response = _call_with_retry(_operation, description)
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 147, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        price=price,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 6504, in futures_create_order
+    return self._request_futures_api('post', 'order', True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 383, in _request_futures_api
+    return self._request(method, uri, signed, True, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 359, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 368, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4016): Limit price can't be higher than 76460.54.
+2026-06-01 13:25:06 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:25:06 | INFO    | trading_bot | Submitting order | MARKET SELL 0.001 BTCUSDT
+2026-06-01 13:25:06 | INFO    | trading_bot | Order response | MARKET SELL 0.001 BTCUSDT | {'orderId': 13674881271, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'SGbqf0hs7t9DnMjdTXra7o', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780300506543}
+2026-06-01 13:25:06 | INFO    | trading_bot | Order placed successfully | orderId=13674881271 status=NEW
+2026-06-01 13:26:03 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:26:03 | INFO    | trading_bot | Submitting order | LIMIT BUY 0.001 BTCUSDT @ 72000.0
+2026-06-01 13:26:04 | INFO    | trading_bot | Order response | LIMIT BUY 0.001 BTCUSDT @ 72000.0 | {'orderId': 13674955913, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'ULzzQjqtXpQi3426yuxAfO', 'price': '72000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780300564211}
+2026-06-01 13:26:04 | INFO    | trading_bot | Order placed successfully | orderId=13674955913 status=NEW
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:45:35 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 13:45:35 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:45:35 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:45:35 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 13:45:35 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 13:45:35 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:45:35 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 13:45:35 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 13:55:10 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:55:10 | INFO    | trading_bot | Submitting order | MARKET SELL 0.001 BTCUSDT
+2026-06-01 13:55:11 | INFO    | trading_bot | Order response | MARKET SELL 0.001 BTCUSDT | {'orderId': 13677139238, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'v0S8YMw6qgbcuL6BteWI9X', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780302311197}
+2026-06-01 13:55:11 | INFO    | trading_bot | Order placed successfully | orderId=13677139238 status=NEW
+2026-06-01 13:55:48 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 13:55:48 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 13:55:49 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13677169807, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': '92CX7ErhhkQthjIX1zH6c0', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780302349321}
+2026-06-01 13:55:49 | INFO    | trading_bot | Order placed successfully | orderId=13677169807 status=NEW
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:01:18 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 15:01:18 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | STOP SELL 0.001 BTCUSDT @ 90000.0 (trigger 91000.0)
+2026-06-01 15:01:18 | INFO    | trading_bot | Order response | STOP SELL 0.001 BTCUSDT @ 90000.0 (trigger 91000.0) | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:01:18 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:01:18 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:01:18 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:01:18 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:01:18 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 15:01:18 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 15:01:37 | ERROR   | trading_bot | Invalid input or configuration: Stop price is required for a STOP order (use --stop-price).
+2026-06-01 15:01:37 | INFO    | trading_bot | Order not placed — user declined confirmation.
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:08:24 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 15:08:24 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | STOP SELL 0.001 BTCUSDT @ 90000.0 (trigger 91000.0)
+2026-06-01 15:08:24 | INFO    | trading_bot | Order response | STOP SELL 0.001 BTCUSDT @ 90000.0 (trigger 91000.0) | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:08:24 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:08:24 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:08:24 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:08:24 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:08:24 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 15:08:24 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 15:08:24 | ERROR   | trading_bot | Invalid input or configuration: Side 'HOLD' is invalid: expected one of BUY, SELL.
+2026-06-01 15:25:37 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 15:25:37 | INFO    | trading_bot | Submitting order | STOP SELL 0.001 BTCUSDT @ 80000.0 (trigger 81000.0)
+2026-06-01 15:25:37 | ERROR   | trading_bot | Binance API error placing order: code=-4120 message=Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/cli.py", line 354, in run
+    response = _place_order(client, params)
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/cli.py", line 287, in _place_order
+    return place_stop_limit_order(
+        client,
+    ...<4 lines>...
+        stop_price=params["stop_price"],
+    )
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 209, in place_stop_limit_order
+    response = _call_with_retry(_operation, description)
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 199, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<5 lines>...
+        stopPrice=stop_price,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 6504, in futures_create_order
+    return self._request_futures_api('post', 'order', True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 383, in _request_futures_api
+    return self._request(method, uri, signed, True, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 359, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/.venv/lib/python3.14/site-packages/binance/client.py", line 368, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4120): Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:34:27 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 15:34:27 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:34:27 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:34:27 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:34:27 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:34:27 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:34:27 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 15:34:27 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 15:34:27 | ERROR   | trading_bot | Invalid input or configuration: Order type 'STOP' is invalid: expected one of MARKET, LIMIT.
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:09 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 15:38:09 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:09 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:09 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:38:09 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:38:09 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:09 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 15:38:09 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:41 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | LIMIT SELL 1.5 ETHUSDT @ 3000.0
+2026-06-01 15:38:41 | INFO    | trading_bot | Order response | LIMIT SELL 1.5 ETHUSDT @ 3000.0 | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:41 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 13674104195, 'symbol': 'BTCUSDT', 'status': 'NEW', 'executedQty': '0.000', 'avgPrice': '0.00', 'origQty': '0.001', 'side': 'BUY', 'type': 'MARKET'}
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 NOPE
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:41 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): boom. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:38:41 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 2/2): boom. Giving up.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 67, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1234, in _execute_mock_call
+    raise effect
+requests.exceptions.ConnectionError: boom
+2026-06-01 15:38:41 | INFO    | trading_bot | Submitting order | MARKET BUY 0.001 BTCUSDT
+2026-06-01 15:38:41 | ERROR   | trading_bot | Network failure on MARKET BUY 0.001 BTCUSDT (attempt 1/2): transient. Retrying in 1.0s.
+Traceback (most recent call last):
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 56, in _call_with_retry
+    return operation()
+  File "/Users/vanshjain/Documents/EDAAA/Web-App-Detecting-Cyber-Bullying-using-Machine-Learning/trading_bot/bot/orders.py", line 104, in _operation
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol=symbol,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        quantity=quantity,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1175, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1179, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1238, in _execute_mock_call
+    raise result
+requests.exceptions.ConnectionError: transient
+2026-06-01 15:38:41 | INFO    | trading_bot | Order response | MARKET BUY 0.001 BTCUSDT | {'orderId': 999, 'status': 'NEW'}
+2026-06-01 15:38:41 | ERROR   | trading_bot | Invalid input or configuration: Price is required for a LIMIT order (use --price).
+2026-06-01 15:38:42 | INFO    | trading_bot | Order not placed — user declined confirmation.
+2026-06-01 16:05:14 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 16:05:14 | INFO    | trading_bot | Submitting order | MARKET BUY 0.01 BTCUSDT
+2026-06-01 16:05:14 | INFO    | trading_bot | Order response | MARKET BUY 0.01 BTCUSDT | {'orderId': 13686901872, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': '4a0BsBtrIpZxCQHeo3XUG9', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780310114749}
+2026-06-01 16:05:14 | INFO    | trading_bot | Order placed successfully | orderId=13686901872 status=NEW
+2026-06-01 16:06:16 | INFO    | trading_bot | Binance Futures Demo client constructed | base_url=https://demo-fapi.binance.com | api_key=****(set, len=64) | api_secret=****(set, len=64)
+2026-06-01 16:06:16 | INFO    | trading_bot | Submitting order | MARKET SELL 0.01 BTCUSDT
+2026-06-01 16:06:16 | INFO    | trading_bot | Order response | MARKET SELL 0.01 BTCUSDT | {'orderId': 13686972131, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'foximgAyVazNK64DRIChbP', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1780310176365}
+2026-06-01 16:06:16 | INFO    | trading_bot | Order placed successfully | orderId=13686972131 status=NEW

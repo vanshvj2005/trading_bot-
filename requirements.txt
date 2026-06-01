@@ -1,0 +1,11 @@
+# Runtime dependencies for the Binance Futures Demo trading bot.
+# Versions are pinned for reproducible installs.
+
+python-binance==1.0.19   # Binance REST client (Spot + Futures)
+python-dotenv==1.0.1     # load API_KEY / API_SECRET from .env
+requests==2.32.3         # transitive dep of python-binance; pinned for the
+                         # ConnectionError/Timeout types we catch explicitly
+
+# Test dependencies
+pytest==8.3.4            # test runner
+pytest-mock==3.14.0      # the `mocker` fixture used in tests/test_orders.py

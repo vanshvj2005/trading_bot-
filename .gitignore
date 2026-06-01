@@ -1,0 +1,26 @@
+# Secrets — never commit real API credentials.
+.env
+
+# Personal interview-prep notes (not part of the submission).
+INTERVIEW_PREP.md
+
+# Log files: ignore contents but keep the directory and the submission log
+logs/*
+!logs/.gitkeep
+!logs/trading_bot.log
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
